@@ -40,6 +40,11 @@ kubectl config get-contexts
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/dde4e475-0395-45e6-b781-252feb78911f)
 
+If you would like to delete a context 
+
+```
+kubectl config delete-context contextname
+```
 
 ## 4. 
 
