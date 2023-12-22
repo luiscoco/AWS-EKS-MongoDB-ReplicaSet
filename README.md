@@ -24,6 +24,10 @@ eksctl create cluster ^
 --nodes 4
 ```
 
+**NOTE**: if version 1.25 is not yet working in your laptop use version 1.24.
+
+The AWS Kubernetes cluster creation takes around or more than 1 hour
+
 **NOTE**: If you get an error during the cluster creation due to name is not unique, delete the cluster with the following command and input a new cluster name 
 
 ```
