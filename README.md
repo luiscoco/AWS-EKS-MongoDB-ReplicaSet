@@ -148,11 +148,15 @@ kubectl get pods --namespace dev
 
 ## 6.  Write the deployment.yml file to deploy the Kubernetes cluster
 
-This is the source code for the **deployment.yaml** file:
+This is the source code for the **deployment.yml** file:
 
 **IMPORTANT**: 
 
 In this file do not forget to set the docker image in **AWS ECR**
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/09da4954-dfc5-42ce-ad4c-2efd6312fd3e)
+
+Set this image URL in the **deployment.yml** file
 
 ```
 spec:
