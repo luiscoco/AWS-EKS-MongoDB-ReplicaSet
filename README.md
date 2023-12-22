@@ -152,7 +152,16 @@ This is the source code for the **deployment.yaml** file:
 
 **IMPORTANT**: 
 
-In this file do not forget to set **image: public.ecr.aws/x6y4g2f4/dotnet6webapi:latest** based on the information get from AWS ECR
+In this file do not forget to set the docker image in **AWS ECR**
+
+```
+spec:
+      containers:
+      - name: webapidotnet8
+        image: public.ecr.aws/x6y4g2f4/dotnet6webapi:latest
+        ports:
+        - containerPort: 8080
+```
 
 Also it is very important to set the environmental variable. 
 
