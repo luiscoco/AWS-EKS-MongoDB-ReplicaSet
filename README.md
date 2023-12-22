@@ -55,6 +55,42 @@ kubectl config use-context contextname
 
 ## 4. 
 
+```
+kubectl create namespace dev
+```
+
+```
+kubectl get nodes
+```
+
+```
+kubectl get ns
+```
+
+```
+kubectl get all
+```
+
+```
+kubectl get pods
+```
+
+```
+kubectl get all --namespace dev
+```
+
+```
+kubectl get nodes --namespace dev
+```
+
+```
+kubectl get ns --namespace dev
+```
+
+```
+kubectl get pods --namespace dev
+```
+
 
 
 
