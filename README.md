@@ -38,6 +38,9 @@ eksctl delete cluster --region=eu-west-3 --name=dotnet8webapi-1974123
 kubectl config get-contexts
 ```
 
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/dde4e475-0395-45e6-b781-252feb78911f)
+
+
 ## 4. 
 
 
