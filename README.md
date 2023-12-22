@@ -170,4 +170,5 @@ kubectl apply -f service.yml --namespace dev
 
 ## 8. Verify the Web API endpoint
 
-![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/e3aa45d2-382e-4868-b183-c38a9043c551)
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/9fb5251c-87d6-416d-be98-049788ec61ef)
+
