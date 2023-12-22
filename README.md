@@ -111,6 +111,7 @@ This is the source code for the **deployment.yaml** file:
 
 **deployment.yml**
 
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -130,5 +131,5 @@ spec:
         image: public.ecr.aws/x6y4g2f4/dotnet8webapi:latest
         ports:
         - containerPort: 8080
-
+```
         
