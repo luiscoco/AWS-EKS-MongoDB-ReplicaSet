@@ -146,11 +146,25 @@ kubectl get ns --namespace dev
 kubectl get pods --namespace dev
 ```
 
-## 6.  This is the deployment.yml file to deploy the Kubernetes cluster
+## 6.  Write the deployment.yml file to deploy the Kubernetes cluster
 
 This is the source code for the **deployment.yaml** file:
 
-**deployment.yml**
+**IMPORTANT**: 
+
+In this file do not forget to set **image: public.ecr.aws/x6y4g2f4/dotnet6webapi:latest** based on the information get from AWS ECR
+
+Also it is very important to set the environmental variable. 
+
+Get the environmental variables values from the **launchSettings.json** file: 
+
+```
+ env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+```
+
+This is the **deployment.yml** source code:
 
 ```yaml
 apiVersion: apps/v1
@@ -187,6 +201,35 @@ spec:
               cpu: "500m"
 ```
 
+**IMPORTANT NOTE**: take in consideration if you include in your application a connection string to a database the corresponding environmental variable also should be set (see this example)
+
+```
+ env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ConnectionStrings__FleetManagementDb
+              valueFrom:
+                  configMapKeyRef:
+                    name: mongo-configmap
+                    key: connection_string
+```
+
+**mongo-configmap.yml**
+
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongo-configmap
+data:
+  #connection_string: mongodb://username:password@mongo-service:27017
+  #connection_string: mongodb://mongodb-service:27017
+  #connection_string: mongodb://mongod-0.mongodb-service.default.svc.cluster.local:27017,mongod-1.mongodb-service.default.svc.cluster.local:27017,mongod-2.mongodb-service.default.svc.cluster.local:27017
+  connection_string: mongodb://mongod-0.mongodb-service.dev.svc.cluster.local:27017,mongod-1.mongodb-service.dev.svc.cluster.local:27017,mongod-2.mongodb-service.dev.svc.cluster.local:27017
+  #connection_string: mongodb://mongod-0.mongodb-service.development.svc.cluster.local:27017,mongod-1.mongodb-service.development.svc.cluster.local:27017,mongod-2.mongodb-service.development.svc.cluster.local:27017
+```
+
+
 ## 7. This is the service.yml file to deploy the Kubernetes cluster
 
 ***service.yml**
@@ -219,4 +262,3 @@ kubectl apply -f service.yml --namespace dev
 ## 9. Verify the Web API endpoint
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/9fb5251c-87d6-416d-be98-049788ec61ef)
-
