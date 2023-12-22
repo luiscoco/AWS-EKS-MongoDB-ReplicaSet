@@ -132,4 +132,32 @@ spec:
         ports:
         - containerPort: 8080
 ```
-        
+
+## 7. 
+
+***service.yml**
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapidotnet8-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: webapidotnet8
+```
+
+
+## 8. 
+
+```
+kubectl apply -f deployment.yaml --namespace dev
+```
+
+```
+kubectl apply -f service.yaml --namespace dev
+```
