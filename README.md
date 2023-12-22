@@ -109,22 +109,35 @@ This is the source code for the **deployment.yaml** file:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapidotnet8-deployment
+  name: webapidotnet6-deployment
+  labels:
+    app: webapidotnet6
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: webapidotnet8
+      app: webapidotnet6
   template:
     metadata:
       labels:
-        app: webapidotnet8
+        app: webapidotnet6
     spec:
       containers:
-      - name: webapidotnet8
-        image: public.ecr.aws/x6y4g2f4/dotnet8webapi:latest
-        ports:
-        - containerPort: 8080
+        - name: webapidotnet6
+          image: public.ecr.aws/x6y4g2f4/dotnet6webapi:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
 ```
 
 ## 7. 
@@ -135,14 +148,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapidotnet8-service
+  name: webapidotnet6-service
 spec:
   type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 8080
   selector:
-    app: webapidotnet8
+    app: webapidotnet6
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
 ```
 
 
