@@ -12,8 +12,6 @@ Enable Kubernetes
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/f3569470-60e1-4abb-8268-27a5ebcad178)
 
-
-
 ## 2. Create AWS EKS (Elastic Kubernetes Cluster)
 
 ```
@@ -49,7 +47,7 @@ kubectl config delete-context contextname
 To select a cluster where to deploy applica􀆟ons, run the command:
 
 ```
-kubectl config use-context contextname
+kubectl config use-context luisnewuser@dotnet8webapi-1974123.eu-west-3.eksctl.io
 ```
 
 
@@ -92,10 +90,6 @@ kubectl get pods --namespace dev
 ```
 
 ## 5. 
-
-```
-kubectl apply -f mongodb.yaml --namespace dev
-```
 
 ```
 kubectl get pods --namespace dev
@@ -155,9 +149,9 @@ spec:
 ## 8. 
 
 ```
-kubectl apply -f deployment.yaml --namespace dev
+kubectl apply -f deployment.yml --namespace dev
 ```
 
 ```
-kubectl apply -f service.yaml --namespace dev
+kubectl apply -f service.yml --namespace dev
 ```
