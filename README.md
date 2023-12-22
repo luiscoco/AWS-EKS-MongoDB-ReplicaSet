@@ -1,5 +1,11 @@
 # AWS-EKS-MongoDB-ReplicaSet
 
+## 0. Create a .NET 7 WebAPI with Visual Studio Community edition
+
+Enable Docker suppoort for automatically create the Dockerfile
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/7328b368-f3b9-437b-8da0-8c0a2ca40262)
+
 ## 1. Run Docker Desktop
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/155a6ddb-7518-4ba0-9229-7e7aed13d738)
@@ -12,10 +18,7 @@ Enable Kubernetes
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/f3569470-60e1-4abb-8268-27a5ebcad178)
 
-
 ## 2. Create .NET 8 Web API Docker image and upload to AWS ECR
-
-### 2.1. Create .NET 8 Web API Docker image
 
 Navigate to AWS ECR and create a public repo to store the .NET 8 WebAPI Docker image
 
@@ -40,13 +43,6 @@ docker tag dotnet6webapi:latest public.ecr.aws/x6y4g2f4/dotnet6webapi:latest
 ```
 docker push public.ecr.aws/x6y4g2f4/dotnet6webapi:latest
 ```
-
-### 2.2. Upload Docker image to AWS ECR
-
-
-
-
-
 
 ## 3. Create AWS EKS (Elastic Kubernetes Cluster)
 
@@ -76,18 +72,18 @@ eksctl delete cluster --region=eu-west-3 --name=luiscocoenriquezdotnet6webapi-cl
 kubectl config get-contexts
 ```
 
-![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/dde4e475-0395-45e6-b781-252feb78911f)
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/116a82ec-621d-47bc-84c0-0a2959001f64)
 
 If you would like to delete a context 
 
 ```
-kubectl config delete-context contextname
+kubectl config delete-context luisnewuser@luiscocoenriquezdotnet6webapi-cluster.eu-west-3.eksctl.io
 ```
 
 To select a cluster where to deploy applications, run the command:
 
 ```
-kubectl config use-context luisnewuser@dotnet6webapi-1974123.eu-west-3.eksctl.io
+kubectl config use-context luisnewuser@luiscocoenriquezdotnet6webapi-cluster.eu-west-3.eksctl.io
 ```
 
 ## 5. Verify the kubenetes parameters
