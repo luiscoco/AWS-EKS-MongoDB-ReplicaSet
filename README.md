@@ -1,6 +1,6 @@
-# AWS-EKS-MongoDB-ReplicaSet
+# How to deploy .NET 6 WebAPI to AWS EKS cluster
 
-## 0. Create a .NET 7 WebAPI with Visual Studio Community edition
+## 0. Create a .NET 6 WebAPI with Visual Studio Community edition
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/80bfe095-2a37-4cf0-87e5-d596d339370a)
 
@@ -30,9 +30,9 @@ Enable Kubernetes
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/f3569470-60e1-4abb-8268-27a5ebcad178)
 
-## 2. Create .NET 8 Web API Docker image and upload to AWS ECR
+## 2. Create .NET 6 Web API Docker image and upload to AWS ECR
 
-Navigate to AWS ECR and create a public repo to store the .NET 8 WebAPI Docker image
+Navigate to AWS ECR and create a public repo to store the .NET 6 WebAPI Docker image
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/a20da4ec-348e-4397-ba7b-660f4a6051e8)
 
