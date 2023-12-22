@@ -6,6 +6,8 @@
 
 Enable Kubernetes 
 
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/658b6e28-aa7d-4ab7-a411-216b36ed5029)
+
 ## 2. Create AWS EKS (Elastic Kubernetes Cluster)
 
 ```
