@@ -30,7 +30,7 @@ eksctl create cluster ^
 eksctl delete cluster --region=eu-west-3 --name=dotnet8webapi-1974123
 ```
 
-## 3. 
+## 3. Get and Set AWS Kubernetes Cluster context
 
 ```
 kubectl config get-contexts
@@ -50,24 +50,33 @@ To select a cluster where to deploy applica􀆟ons, run the command:
 kubectl config use-context luisnewuser@dotnet8webapi-1974123.eu-west-3.eksctl.io
 ```
 
+## 4. Verify the kubenetes parameters
 
-## 4. 
+We create a new namespace "dev"
 
 ```
 kubectl create namespace dev
 ```
 
+We verify the nodes
+
 ```
 kubectl get nodes
 ```
+
+We verify the namespaces
 
 ```
 kubectl get ns
 ```
 
+We verify the services, nodes, namespaces and pods
+
 ```
 kubectl get all
 ```
+
+We verify the pods
 
 ```
 kubectl get pods
@@ -89,17 +98,7 @@ kubectl get ns --namespace dev
 kubectl get pods --namespace dev
 ```
 
-## 5. 
-
-```
-kubectl get pods --namespace dev
-```
-
-```
-kubectl get all --namespace dev
-```
-
-## 6. 
+## 5.  This is the deployment.yml file to deploy the Kubernetes cluster
 
 This is the source code for the **deployment.yaml** file:
 
@@ -140,7 +139,7 @@ spec:
               cpu: "500m"
 ```
 
-## 7. 
+## 6. This is the service.yml file to deploy the Kubernetes cluster
 
 ***service.yml**
 
@@ -159,8 +158,7 @@ spec:
       targetPort: 80
 ```
 
-
-## 8. 
+## 7. Deploy the kubernetes manifest files (deployment.yml and service.yml)
 
 ```
 kubectl apply -f deployment.yml --namespace dev
@@ -169,3 +167,7 @@ kubectl apply -f deployment.yml --namespace dev
 ```
 kubectl apply -f service.yml --namespace dev
 ```
+
+## 8. Verify the Web API endpoint
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/e3aa45d2-382e-4868-b183-c38a9043c551)
