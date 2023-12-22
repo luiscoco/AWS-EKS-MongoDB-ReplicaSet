@@ -15,13 +15,7 @@ Enable Kubernetes
 ## 2. Create AWS EKS (Elastic Kubernetes Cluster)
 
 ```
-eksctl create cluster ^
-  --name dotnet8webapi-1974123 ^
-  --version 1.24 ^
-  --region eu-west-3 ^
-  --nodegroup-name linux-nodes ^
-  --node-type t2.micro ^
-  --nodes 1
+eksctl create cluster --name luiscocoenriquezdotnet6webapi-cluster --version 1.25 --region eu-west-3 --nodegroup-name linux-nodes --node-type t2.micro --nodes 4
 ```
 
 **NOTE**: If you get an error during the cluster creation due to name is not unique, delete the cluster with the following command and input a new cluster name 
