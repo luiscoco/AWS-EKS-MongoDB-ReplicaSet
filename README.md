@@ -2,7 +2,19 @@
 
 ## 0. Create a .NET 7 WebAPI with Visual Studio Community edition
 
-Enable Docker suppoort for automatically create the Dockerfile
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/80bfe095-2a37-4cf0-87e5-d596d339370a)
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/44cbdf18-41c3-4cb8-b063-8d65c14286a7)
+
+Set the project name and the location
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/6ea0102a-0ecb-48c9-afdd-80173f5420f8)
+
+Set the project features. IMPORTANT: Enable Docker suppoort for automatically create the Dockerfile
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/5b9f1d44-0daf-412f-a54c-3e956910c84c)
+
+Add the kubernetes manifest files to the project: **deployment.yml** and **service.yml**
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/7328b368-f3b9-437b-8da0-8c0a2ca40262)
 
