@@ -46,6 +46,13 @@ If you would like to delete a context
 kubectl config delete-context contextname
 ```
 
+To select a cluster where to deploy applica􀆟ons, run the command:
+
+```
+kubectl config use-context contextname
+```
+
+
 ## 4. 
 
 
