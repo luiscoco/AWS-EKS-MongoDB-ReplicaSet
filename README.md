@@ -158,6 +158,10 @@ Also it is very important to set the environmental variable.
 
 Get the environmental variables values from the **launchSettings.json** file: 
 
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/049856b7-9947-49ed-a9fe-a78a16861a61)
+
+and set it in **deployment.yml** file
+
 ```
  env:
             - name: ASPNETCORE_ENVIRONMENT
