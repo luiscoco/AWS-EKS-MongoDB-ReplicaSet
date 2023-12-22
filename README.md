@@ -105,3 +105,30 @@ kubectl get pods --namespace dev
 kubectl get all --namespace dev
 ```
 
+## 6. 
+
+This is the source code for the **deployment.yaml** file:
+
+**deployment.yml**
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapidotnet8-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webapidotnet8
+  template:
+    metadata:
+      labels:
+        app: webapidotnet8
+    spec:
+      containers:
+      - name: webapidotnet8
+        image: public.ecr.aws/x6y4g2f4/dotnet8webapi:latest
+        ports:
+        - containerPort: 8080
+
+        
