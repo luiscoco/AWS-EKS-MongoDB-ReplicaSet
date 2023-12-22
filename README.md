@@ -91,6 +91,17 @@ kubectl get ns --namespace dev
 kubectl get pods --namespace dev
 ```
 
+## 5. 
 
+```
+kubectl apply -f mongodb.yaml --namespace dev
+```
 
+```
+kubectl get pods --namespace dev
+```
+
+```
+kubectl get all --namespace dev
+```
 
