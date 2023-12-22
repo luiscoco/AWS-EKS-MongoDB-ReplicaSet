@@ -12,7 +12,43 @@ Enable Kubernetes
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/f3569470-60e1-4abb-8268-27a5ebcad178)
 
-## 2. Create AWS EKS (Elastic Kubernetes Cluster)
+
+## 2. Create .NET 8 Web API Docker image and upload to AWS ECR
+
+### 2.1. Create .NET 8 Web API Docker image
+
+Navigate to AWS ECR and create a public repo to store the .NET 8 WebAPI Docker image
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/a20da4ec-348e-4397-ba7b-660f4a6051e8)
+
+Click on the created repo name and press the button **View push commands**
+
+![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/f56bca67-f0d1-42e3-ab44-823e5ec910c2)
+
+```
+aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/x6y4g2f4
+```
+
+```
+docker build -t dotnet6webapi .
+```
+
+```
+docker tag dotnet6webapi:latest public.ecr.aws/x6y4g2f4/dotnet6webapi:latest
+```
+
+```
+docker push public.ecr.aws/x6y4g2f4/dotnet6webapi:latest
+```
+
+### 2.2. Upload Docker image to AWS ECR
+
+
+
+
+
+
+## 3. Create AWS EKS (Elastic Kubernetes Cluster)
 
 ```
 eksctl create cluster ^
@@ -31,10 +67,10 @@ The AWS Kubernetes cluster creation takes around or more than 1 hour
 **NOTE**: If you get an error during the cluster creation due to name is not unique, delete the cluster with the following command and input a new cluster name 
 
 ```
-eksctl delete cluster --region=eu-west-3 --name=dotnet8webapi-1974123
+eksctl delete cluster --region=eu-west-3 --name=luiscocoenriquezdotnet6webapi-cluster
 ```
 
-## 3. Get and Set AWS Kubernetes Cluster context
+## 4. Get and Set AWS Kubernetes Cluster context
 
 ```
 kubectl config get-contexts
@@ -54,7 +90,7 @@ To select a cluster where to deploy applications, run the command:
 kubectl config use-context luisnewuser@dotnet6webapi-1974123.eu-west-3.eksctl.io
 ```
 
-## 4. Verify the kubenetes parameters
+## 5. Verify the kubenetes parameters
 
 We create a new namespace "dev"
 
@@ -102,7 +138,7 @@ kubectl get ns --namespace dev
 kubectl get pods --namespace dev
 ```
 
-## 5.  This is the deployment.yml file to deploy the Kubernetes cluster
+## 6.  This is the deployment.yml file to deploy the Kubernetes cluster
 
 This is the source code for the **deployment.yaml** file:
 
@@ -143,7 +179,7 @@ spec:
               cpu: "500m"
 ```
 
-## 6. This is the service.yml file to deploy the Kubernetes cluster
+## 7. This is the service.yml file to deploy the Kubernetes cluster
 
 ***service.yml**
 
@@ -162,7 +198,7 @@ spec:
       targetPort: 80
 ```
 
-## 7. Deploy the kubernetes manifest files (deployment.yml and service.yml)
+## 8. Deploy the kubernetes manifest files (deployment.yml and service.yml)
 
 ```
 kubectl apply -f deployment.yml --namespace dev
@@ -172,7 +208,7 @@ kubectl apply -f deployment.yml --namespace dev
 kubectl apply -f service.yml --namespace dev
 ```
 
-## 8. Verify the Web API endpoint
+## 9. Verify the Web API endpoint
 
 ![image](https://github.com/luiscoco/AWS-EKS-MongoDB-ReplicaSet/assets/32194879/9fb5251c-87d6-416d-be98-049788ec61ef)
 
